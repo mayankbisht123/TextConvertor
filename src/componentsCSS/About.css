@@ -1,0 +1,7 @@
+.accordion{
+    border-radius: 20px;
+}
+.accordion .accordion-item .accordion-button {
+    color: blueviolet;
+}
+

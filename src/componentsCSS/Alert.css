@@ -1,0 +1,8 @@
+.alert {
+    position: fixed !important; /* Fixes the position */
+    top: 10px !important;    /* Adjusts the distance from the top */
+    left: 50% !important;      /* Centers the alert */
+    transform: translateX(-50%) !important; /* Centers the alert */
+    z-index: 1050 !important;  /* Ensures it stays on top of other content */
+    width: auto !important;    /* Adjust width if necessary */
+  }

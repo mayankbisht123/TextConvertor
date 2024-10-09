@@ -1,25 +1,55 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Nav from './components/Nav';
+import TextArea from './components/TextArea';
+import ShowAlert from './components/Alert';
+import About from './components/About';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App=()=>{
+  let [mode,setMode]=useState('light');
+  const [alert,setAlert]= useState(null);
+
+  const showAlert=(message,varient)=>{
+    setAlert({
+      msg:message,
+      vari:varient
+  });
+    setTimeout(()=>{
+        setAlert(null);
+    },3000);
 }
 
+  const toogleMode=()=>{
+    if(mode==='light')
+    {
+      setMode('dark');
+    }
+    else{
+      setMode('light');
+    }
+
+  };
+return (
+  <>
+  <Router>
+    <Nav home='Home' about='About' cont='Contacts' address="Address" email="Email" no="Phone" mode={mode} toogleMode={toogleMode}/>
+    <ShowAlert alert={alert}/>
+    <Routes>
+          <Route path="/about" element={<About />} />
+          <Route path="/" element={<TextArea alert={showAlert} mode={mode} label="Convertor for lowercase to UPPERCASE"/>}/>
+      </Routes>
+  </Router>
+  </>
+);
+};
+
+App.defaultProps={
+  home:'Home',
+  email:'E-mail'
+}
 export default App;
