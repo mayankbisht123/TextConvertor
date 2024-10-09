@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 
 const App=()=>{
+  document.title="TextConvertor";
   let [mode,setMode]=useState('light');
   const [alert,setAlert]= useState(null);
 
