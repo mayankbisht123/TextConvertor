@@ -43,7 +43,7 @@ return (
     <Routes>
           <Route path="/about" element={<About />} />
           <Route path="/" element={<TextArea alert={showAlert} mode={mode} label="Text Convertor - Convert, Alter, Clear, Copy"/>}/>
-      </Routes>
+    </Routes>
   </Router>
   </>
 );
